@@ -18,7 +18,10 @@ def save_data():
 
 
 def add_bird_data():
-    print("nothing hear")
+    type_of_bird=input("what kind of bird: ")
+    bird_number=input("how many bird: ")
+    were_you_find=input("were was it: ")
+    when_was_it=input("when was it: ")
 
 
 
