@@ -2,26 +2,37 @@ import json
 import os
 import re
 
-data="data.json"
+data_file="data.json"
 
-if os.path.exists(data):
-    with open(data, 'r') as file:
+if os.path.exists(data_file):
+    with open(data_file, 'r') as file:
         onsitedata = json.load(file)
 else:
     onsitedata = {}
 
 
+
+if 'birds' not in onsitedata:
+    onsitedata['birds'] = []
+
+
 def save_data():
-    with open (data, 'w') as file:
+    with open (data_file, 'w') as file:
         json.dump(onsitedata, file, indent=4)
+
 
 
 
 def add_bird_data():
     type_of_bird=input("what kind of bird: ")
-    bird_number=input("how many bird: ")
+    bird_number=input("how many birds: ")
     were_you_find=input("were was it: ")
     when_was_it=input("when was it: ")
+    line = f"{type_of_bird} | {bird_number} | {were_you_find} | {when_was_it}"
+    bird_data.append(line)   
+    save_data()
+    print ("the {type_of_bird} was added")
+    
 
 
 
