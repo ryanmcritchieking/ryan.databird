@@ -11,6 +11,11 @@ else:
     onsitedata = {}
 
 
+def save_data():
+    with open (data, 'w') as file:
+        json.dump(onsitedata, file, indent=4)
+
+
 
 def add_bird_data():
     print("nothing hear")
