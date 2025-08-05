@@ -29,10 +29,11 @@ def add_bird_data():
     were_you_find=input("were was it: ")
     when_was_it=input("when was it: ")
     line = f"{type_of_bird} | {bird_number} | {were_you_find} | {when_was_it}"
-    birdata.append(line)   
+    onsitedata['birds'].append(line)   
     save_data()
-    print ("the {type_of_bird} was added")
+    print (f"the {type_of_bird} was added")
     
+
 
 
 
