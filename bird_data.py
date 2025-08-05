@@ -37,8 +37,6 @@ def add_bird_data():
 
 
 
-def add_lots_bird_data():
-    print("nothing hear")
 
 
 
@@ -56,22 +54,24 @@ def show_menu():
     while True:
         print('bird data saver')
         print('add bird:1')
-        print('add more than onebird:2')
-        print('remove bird data:3')
-        print('show bird data:4')
-        option=input("pick from 1-4: ")
+        print('remove bird data:2')
+        print('show bird data:3')
+        print('')
+        print('')
+        print('')
+        option=input("pick from 1-3: ")
         if option=='1':
             add_bird_data()
         elif option=='2':
-            add_lots_bird_data()
-        elif option=='3':
             remove_bird_data()
-        elif option=='4':
+        elif option=='3':
             show_bird_data()
+        elif option=='4':
+             print("nothing hear till update")
         elif option=='5':
-            print("nothing hear to update")
+            print("nothing hear till update")
         elif option=='6':
-            print("nothing hear to update")
+            print("nothing hear till update")
         else:
             print("this is not a number to choose")
             
