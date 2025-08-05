@@ -46,7 +46,15 @@ def remove_bird_data():
 
 
 def show_bird_data():
-    print("nothing hear")
+    if not onsitedata['birds']:
+        print("No bird data available.")
+        return
+
+    print("\nSaved Bird Data:")
+    for idx, bird_entry in enumerate(onsitedata['birds'], start=1):
+        type_of_bird, bird_number, where_found, when_seen = map(str.strip, bird_entry.split('|'))
+        print(f"{idx}. Bird: {type_of_bird}, Number: {bird_number}, Location: {where_found}, When: {when_seen}")
+    
 
 
 
@@ -56,7 +64,7 @@ def show_menu():
         print('add bird:1')
         print('remove bird data:2')
         print('show bird data:3')
-        print('')
+        print('export to excel')
         print('')
         print('')
         option=input("pick from 1-3: ")
