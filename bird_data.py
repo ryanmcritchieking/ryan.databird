@@ -39,8 +39,12 @@ def add_bird_data():
 def remove_all_data():
     are_you_sure=input("are you sure you want to delate all your saved data type 1: ")
     if are_you_sure=="1":
+         onsitedata['birds'] = []
+        save_data()
+        print("All bird data removed.")
+    else:
+        print("Canceled. No data removed.")
 
-        print("data removed: ")
 
 
 
