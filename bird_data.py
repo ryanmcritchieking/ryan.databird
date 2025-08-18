@@ -2,6 +2,7 @@ import json
 import os
 import re
 import pip
+import pandas as pd 
 data_file="data.json"
 
 if os.path.exists(data_file):
