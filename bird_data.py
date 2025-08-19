@@ -73,6 +73,21 @@ def show_bird_data():
         print(f"{idx}. Bird: {type_of_bird}, Number: {bird_number}, Location: {where_found}, When: {when_seen}")
     
 
+def exsport_to_excel():
+    if not onsitedata["birds"]:
+         print("No bird data available.")
+         return
+
+    bird_list=[]
+    for entry in onsitedata["birds"]:
+        type_of_bird, bird_number, where_found, when_seen = map(str.strip, entry.split('|'))
+        bird_list.append({
+            'Bird': type_of_bird,
+            'Number': bird_number,
+            'Location': where_found,
+            'When': when_seen
+        })
+
 
 
 def show_menu():
@@ -84,7 +99,7 @@ def show_menu():
         print('export to excel:4 ')
         print('remove all:5 ')
         print('')
-        option=input("pick from 1-3: ")
+        option=input("pick from 1-5: ")
         if option=='1':
             add_bird_data()
         elif option=='2':
