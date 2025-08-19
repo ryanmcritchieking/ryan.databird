@@ -5,6 +5,8 @@ import pip
 import pandas as pd
 
 
+bird_list=[]
+
 data_file="data.json"
 
 if os.path.exists(data_file):
@@ -78,7 +80,7 @@ def exsport_to_excel():
          print("No bird data available.")
          return
 
-    bird_list=[]
+    
     for entry in onsitedata["birds"]:
         type_of_bird, bird_number, where_found, when_seen = map(str.strip, entry.split('|'))
         bird_list.append({
