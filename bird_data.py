@@ -52,7 +52,13 @@ def remove_all_data():
 
 
 def remove_bird_data():
-    print("nothing hear")
+    if not onsitedata["birds"]:
+        print("no data to remove")
+        return
+    removed=onsitedata["birds"].pop()
+    save_data()
+    print(f"removed{removed}")
+
 
 
 
