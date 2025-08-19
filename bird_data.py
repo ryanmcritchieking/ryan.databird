@@ -87,7 +87,7 @@ def exsport_to_excel():
             'Location': where_found,
             'When': when_seen
         })
-df = pd.DataFrame(bird_list)
+df = pd.DataFrame("bird_list")
 df.to_excel("bird_data.xlsx", index=False)
 print("Bird data sentto bird_data.xlsx")
 
