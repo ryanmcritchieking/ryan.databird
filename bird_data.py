@@ -1,7 +1,9 @@
 import json
 import os
 import re
-import pip
+import pip 
+import pandas as pd
+
 data_file="data.json"
 
 if os.path.exists(data_file):
@@ -38,8 +40,11 @@ def add_bird_data():
 def remove_all_data():
     are_you_sure=input("are you sure you want to delate all your saved data type 1: ")
     if are_you_sure=="1":
-
+        onsitedata["birds"]=[]
+        save_data()
         print("data removed: ")
+    else:
+        print("no data removed")
 
 
 
@@ -65,12 +70,12 @@ def show_bird_data():
 
 def show_menu():
     while True:
-        print('bird data saver')
-        print('add bird:1')
-        print('remove bird data:2')
-        print('show bird data:3')
-        print('export to excel')
-        print('remove all5')
+        print('bird data saver ')
+        print('add bird:1 ')
+        print('remove bird data:2 ')
+        print('show bird data:3 ')
+        print('export to excel:4 ')
+        print('remove all:5 ')
         print('')
         option=input("pick from 1-3: ")
         if option=='1':
