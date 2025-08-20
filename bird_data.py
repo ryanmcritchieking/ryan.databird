@@ -89,9 +89,9 @@ def export_to_excel():
             'Location': where_found,
             'When': when_seen
         })
-df = pd.DataFrame(bird_list)
-df.to_excel("bird_data.xlsx", index=False)
-print("Bird data sent to bird_data.xlsx")
+    df = pd.DataFrame(bird_list)
+    df.to_excel("bird_data.xlsx", index=False)
+    print("Bird data sent to bird_data.xlsx")
 
 
 def show_menu():
