@@ -34,6 +34,8 @@ def add_bird_data():
     bird_number=input("how many birds: ")
     were_you_find=input("were was it: ")
     when_was_it=input("when was it: ")
+    if when_was_it.lower() == 'd':
+        when_was_it = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     line = f"{type_of_bird} | {bird_number} | {were_you_find} | {when_was_it}"
     onsitedata['birds'].append(line)   
     save_data()
