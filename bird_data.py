@@ -75,7 +75,7 @@ def show_bird_data():
         print(f"{idx}. Bird: {type_of_bird}, Number: {bird_number}, Location: {where_found}, When: {when_seen}")
     
 
-def exsport_to_excel():
+def export_to_excel():
     if not onsitedata["birds"]:
          print("No bird data available.")
          return
@@ -111,7 +111,7 @@ def show_menu():
         elif option=='3':
             show_bird_data()
         elif option=='4':
-             print("nothing hear till update")
+            export_to_excel()
         elif option=='5':
             remove_all_data()
         elif option=='6':
