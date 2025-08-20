@@ -91,7 +91,7 @@ def exsport_to_excel():
         })
 df = pd.DataFrame(bird_list)
 df.to_excel("bird_data.xlsx", index=False)
-print("Bird data sentto bird_data.xlsx")
+print("Bird data sent to bird_data.xlsx")
 
 
 def show_menu():
