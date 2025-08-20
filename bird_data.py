@@ -33,7 +33,7 @@ def add_bird_data():
     type_of_bird=input("what kind of bird: ")
     bird_number=input("how many birds: ")
     were_you_find=input("were was it: ")
-    when_was_it=input("when was it: ")
+    when_was_it=input("when was it(put d for currend date): ")
     if when_was_it.lower() == 'd':
         when_was_it = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     line = f"{type_of_bird} | {bird_number} | {were_you_find} | {when_was_it}"
