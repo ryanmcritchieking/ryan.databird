@@ -10,7 +10,7 @@ bird_list=[]
 
 settings = {
     "ask_location": True,
-    "ask_when": True
+    "when_was_it": True
 }
 
 
@@ -39,11 +39,20 @@ def save_data():
 def add_bird_data():
     type_of_bird=input("what kind of bird: ")
     bird_number=input("how many birds: ")
-    were_you_find=input("were was it: ")
-    when_was_it=input("when was it(put d for currend date): ")
-    if when_was_it.lower() == 'd':
-        when_was_it = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    line = f"{type_of_bird} | {bird_number} | {were_you_find} | {when_was_it}"
+   
+   
+    where_found = ""
+    if settings.get("ask_location", True):
+        where_found = input("Where was it: ")
+
+
+    when_was_it = ""
+    if settings.get("ask_when", True):
+        when_was_it = input("When was it (or type 'd' for current date): ")
+        if when_was_it.lower() == 'd':
+            when_was_it = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
+    line = f"{type_of_bird} | {bird_number} | {where_found} | {when_was_it}"
     onsitedata['birds'].append(line)   
     save_data()
     print (f"the {type_of_bird} was added")
