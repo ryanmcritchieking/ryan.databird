@@ -56,7 +56,7 @@ def add_bird_data():
 
     notes = ""
     if settings.get("notes", True):
-        notes = input("Where was it: ")
+        notes = input("add notes: ")
 
 
     
