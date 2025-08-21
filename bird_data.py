@@ -115,7 +115,21 @@ def export_to_excel():
 
 
 def open_settings():
-    print ("not done yet")
+    while True:
+        print("chade wich quesgens are asked: ")
+        for key, value in settings.items():
+            print(f"- {key}: {'ON' if value else 'OFF'}")
+        
+        print("put the setting name to change it like ask_location or when_was_it if not type back to return.")
+        choice = input("Your choice: ").lower()
+
+        if choice == 'back':
+            break
+        elif choice in settings:
+            settings[choice] = not settings[choice]
+            print(f"{choice} set to {'ON' if settings[choice] else 'OFF'}")
+        else:
+            print("Invalid setting name.")
 
 
 
