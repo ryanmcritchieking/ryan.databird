@@ -119,24 +119,34 @@ def show_bird_data():
         print(f"{idx}. Bird: {type_of_bird}, Number: {bird_number}, Location: {where_found}, When: {when_seen}, Notes: {notes}")
     
 
+
+
 def export_to_excel():
     if not onsitedata["birds"]:
-         print("No bird data available.")
-         return
+        print("No bird data available.")
+        return
 
-    
+    bird_list = []  
+
     for entry in onsitedata["birds"]:
-        type_of_bird, bird_number, where_found, when_seen, notes = map(str.strip, entry.split('|'))
+        parts = list(map(str.strip, entry.split('|')))
+        while len(parts) < 5:
+            parts.append("") 
+        type_of_bird, bird_number, where_found, when_seen, notes = parts
         bird_list.append({
             'Bird': type_of_bird,
             'Number': bird_number,
             'Location': where_found,
             'When': when_seen,
-            "notes":notes
+            'Notes': notes
         })
-    df = pd.DataFrame(bird_list)
-    df.to_excel("bird_data.xlsx", index=False)
-    print("Bird data sent to bird_data.xlsx")
+
+    try:
+        df = pd.DataFrame(bird_list)
+        df.to_excel("bird_data.xlsx", index=False)
+        print("bird data exported to bird_data.xlsx")
+    except Exception as e:
+        print(f"failed to export Excel file: {e}")
 
 
 
