@@ -111,8 +111,11 @@ def show_bird_data():
         return
 
     print("\nSaved Bird Data:")
-    for idx, bird_entry in enumerate(onsitedata['birds'], start=1):
-        type_of_bird, bird_number, where_found, when_seen, notes = map(str.strip, bird_entry.split('|'))
+    for idx, entry in enumerate(onsitedata['birds'], start=1):
+        parts = list(map(str.strip, entry.split('|')))
+        while len(parts) < 5:
+            parts.append("")  
+        type_of_bird, bird_number, where_found, when_seen, notes = parts
         print(f"{idx}. Bird: {type_of_bird}, Number: {bird_number}, Location: {where_found}, When: {when_seen}, Notes: {notes}")
     
 
