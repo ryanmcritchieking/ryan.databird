@@ -8,6 +8,13 @@ from datetime import datetime
 
 bird_list=[]
 
+settings = {
+    "ask_location": True,
+    "ask_when": True
+}
+
+
+
 data_file="data.json"
 
 if os.path.exists(data_file):
