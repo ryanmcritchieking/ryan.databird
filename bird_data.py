@@ -8,7 +8,7 @@ from datetime import datetime
 
 bird_list=[]
 
-settings = {
+default_settings = {
     "ask_location": True,
     "when_was_it": True,
     "notes":True
@@ -17,6 +17,15 @@ settings = {
 
 
 data_file="data.json"
+settings_file="setting.json"
+
+
+if os.path.exists(settings_file):
+    with open(settings_file, 'r') as sf:
+        settings = json.load(sf)
+else:
+    settings = default_settings.copy()
+
 
 if os.path.exists(data_file):
     with open(data_file, 'r') as file:
