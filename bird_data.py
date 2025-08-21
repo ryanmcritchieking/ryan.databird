@@ -10,7 +10,8 @@ bird_list=[]
 
 settings = {
     "ask_location": True,
-    "when_was_it": True
+    "when_was_it": True,
+    "notes":True
 }
 
 
@@ -47,12 +48,19 @@ def add_bird_data():
 
 
     when_was_it = ""
-    if settings.get("ask_when", True):
+    if settings.get("when_was_it", True):
         when_was_it = input("When was it (or type 'd' for current date): ")
         if when_was_it.lower() == 'd':
             when_was_it = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+
+    notes = ""
+    if settings.get("notes", True):
+        notes = input("Where was it: ")
+
+
     
-    line = f"{type_of_bird} | {bird_number} | {where_found} | {when_was_it}"
+    line = f"{type_of_bird} | {bird_number} | {where_found} | {when_was_it} | {notes}"
     onsitedata['birds'].append(line)   
     save_data()
     print (f"the {type_of_bird} was added")
@@ -90,8 +98,8 @@ def show_bird_data():
 
     print("\nSaved Bird Data:")
     for idx, bird_entry in enumerate(onsitedata['birds'], start=1):
-        type_of_bird, bird_number, where_found, when_seen = map(str.strip, bird_entry.split('|'))
-        print(f"{idx}. Bird: {type_of_bird}, Number: {bird_number}, Location: {where_found}, When: {when_seen}")
+        type_of_bird, bird_number, where_found, when_seen, notes = map(str.strip, bird_entry.split('|'))
+        print(f"{idx}. Bird: {type_of_bird}, Number: {bird_number}, Location: {where_found}, When: {when_seen}, Notes: {notes}")
     
 
 def export_to_excel():
@@ -101,12 +109,13 @@ def export_to_excel():
 
     
     for entry in onsitedata["birds"]:
-        type_of_bird, bird_number, where_found, when_seen = map(str.strip, entry.split('|'))
+        type_of_bird, bird_number, where_found, when_seen, notes = map(str.strip, entry.split('|'))
         bird_list.append({
             'Bird': type_of_bird,
             'Number': bird_number,
             'Location': where_found,
-            'When': when_seen
+            'When': when_seen,
+            "notes":notes
         })
     df = pd.DataFrame(bird_list)
     df.to_excel("bird_data.xlsx", index=False)
@@ -129,7 +138,7 @@ def open_settings():
             settings[choice] = not settings[choice]
             print(f"{choice} set to {'ON' if settings[choice] else 'OFF'}")
         else:
-            print("Invalid setting name.")
+            print("this not setting name.")
 
 
 
