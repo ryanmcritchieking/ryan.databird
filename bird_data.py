@@ -97,6 +97,12 @@ def export_to_excel():
     print("Bird data sent to bird_data.xlsx")
 
 
+
+def open_settings():
+    print ("not done yet")
+
+
+
 def show_menu():
     while True:
         print('bird data saver ')
@@ -105,7 +111,7 @@ def show_menu():
         print('show bird data:3 ')
         print('export to excel:4 ')
         print('remove all:5 ')
-        print('')
+        print('settings:6 ')
         option=input("pick from 1-5: ")
         if option=='1':
             add_bird_data()
@@ -118,7 +124,7 @@ def show_menu():
         elif option=='5':
             remove_all_data()
         elif option=='6':
-            print("nothing hear till update")
+            open_settings()
         else:
             print("this is not a number to choose")
             
