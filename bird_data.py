@@ -151,7 +151,7 @@ def show_menu():
         print('export to excel:4 ')
         print('remove all:5 ')
         print('settings:6 ')
-        option=input("pick from 1-5: ")
+        option=input("pick from 1-6: ")
         if option=='1':
             add_bird_data()
         elif option=='2':
