@@ -44,6 +44,11 @@ def save_data():
         json.dump(onsitedata, file, indent=4)
 
 
+def save_settings():
+    with open(settings_file, 'w') as sf:
+        json.dump(settings, sf, indent=4)
+
+
 
 
 def add_bird_data():
@@ -145,6 +150,7 @@ def open_settings():
             break
         elif choice in settings:
             settings[choice] = not settings[choice]
+            save_settings()
             print(f"{choice} set to {'ON' if settings[choice] else 'OFF'}")
         else:
             print("this not setting name.")
