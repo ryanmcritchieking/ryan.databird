@@ -8,6 +8,8 @@ from datetime import datetime
 
 bird_list=[]
 
+#     defult settings
+
 default_settings = {
     "ask_location": True,
     "when_was_it": True,
@@ -15,10 +17,15 @@ default_settings = {
 }
 
 
-
+#         files
 data_file="data.json"
 settings_file="setting.json"
 password="pasword.json"
+
+
+
+
+#loading jason
 
 
 if os.path.exists(settings_file):
@@ -39,12 +46,22 @@ if os.path.exists(password):
     with open(password, 'r') as file:
         password = json.load(file)
 else:
-    pasworrd = {}
+    password = {}
+
+
+
+
+
+
+
 
 
 if 'birds' not in onsitedata:
     onsitedata['birds'] = []
 
+
+
+#saving funcshon
 
 def save_data():
     with open (data_file, 'w') as file:
