@@ -76,6 +76,21 @@ def save_accounts():
     with open(password_file, 'w') as file:
         json.dump(accounts_data, file, indent=4)
 
+#      useing account
+
+def create_account():
+    username = input("Enter a new username: ")
+    for acc in accounts_data["accounts"]:
+        if acc["username"] == username:
+            print("Username already exists. Try again.")
+            return create_account()
+    password = input("Enter a new password: ")
+    accounts_data["accounts"].append({"username": username, "password": password})
+    save_accounts()
+    print("Account created ")
+    return username
+
+
 
 def add_bird_data():
     type_of_bird=input("what kind of bird: ")
