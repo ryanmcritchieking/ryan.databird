@@ -90,6 +90,16 @@ def create_account():
     print("Account created ")
     return username
 
+def login():
+    username = input("Enter username: ")
+    password = input("Enter password: ")
+    for acc in accounts_data["accounts"]:
+        if acc["username"] == username and acc["password"] == password:
+            print(f"Welcome {username}!")
+            return username
+    print("Invalid username or password. Try again.")
+    return login()
+
 
 
 def add_bird_data():
