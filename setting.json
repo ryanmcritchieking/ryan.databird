@@ -1,5 +1,5 @@
 {
     "ask_location": true,
     "when_was_it": true,
-    "notes": false
+    "notes": true
 }
