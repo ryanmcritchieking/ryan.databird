@@ -18,6 +18,7 @@ default_settings = {
 
 data_file="data.json"
 settings_file="setting.json"
+password="pasword.json"
 
 
 if os.path.exists(settings_file):
@@ -33,6 +34,12 @@ if os.path.exists(data_file):
 else:
     onsitedata = {}
 
+
+if os.path.exists(password):
+    with open(password, 'r') as file:
+        password = json.load(file)
+else:
+    pasworrd = {}
 
 
 if 'birds' not in onsitedata:
