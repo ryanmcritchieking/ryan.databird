@@ -20,7 +20,7 @@ default_settings = {
 #         files
 data_file="data.json"
 settings_file="setting.json"
-password="pasword.json"
+password_file="pasword.json"
 
 
 
@@ -42,11 +42,11 @@ else:
     onsitedata = {}
 
 
-if os.path.exists(password):
-    with open(password, 'r') as file:
-        password = json.load(file)
+if os.path.exists(password_file):
+    with open(password_file, 'r') as file:
+        accounts_data = json.load(file)
 else:
-    password = {}
+    accounts_data = {"accounts": []}
 
 
 
@@ -72,7 +72,9 @@ def save_settings():
     with open(settings_file, 'w') as sf:
         json.dump(settings, sf, indent=4)
 
-
+def save_accounts():
+    with open(password_file, 'w') as file:
+        json.dump(accounts_data, file, indent=4)
 
 
 def add_bird_data():
