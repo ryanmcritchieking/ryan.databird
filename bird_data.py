@@ -172,13 +172,12 @@ def remove_all_data():
 #remove bird
 
 def remove_bird_data():
-    if not onsitedata["birds"]:
-        print("no data to remove")
+    if not onsitedata[current_user]["birds"]:
+        print("No data to remove.")
         return
-    removed=onsitedata["birds"].pop()
+    removed = onsitedata[current_user]["birds"].pop()
     save_data()
-    print(f"removed{removed}")
-
+    print(f"Removed: {removed}")
 
 
 
