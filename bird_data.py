@@ -100,6 +100,20 @@ def login():
     print("Invalid username or password. Try again.")
     return login()
 
+#login 
+
+
+print("1. Login")
+print("2. Create Account")
+choice = input("Choose 1 or 2: ")
+if choice == "1":
+    current_user = login()
+else:
+    current_user = create_account()
+
+
+
+
 
 
 def add_bird_data():
