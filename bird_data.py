@@ -117,17 +117,20 @@ if current_user not in onsitedata:
     onsitedata[current_user] = {"birds": []}
 
 
-
+#add bird
 
 def add_bird_data():
-    type_of_bird=input("what kind of bird: ")
-    bird_number=input("how many birds: ")
-   
-   
+    type_of_bird = input("What kind of bird: ")
+    bird_number = input("How many birds: ")
+
+    # Validate number
+    if not bird_number.isdigit():
+        print("Invalid number, setting to 1.")
+        bird_number = "1"
+
     where_found = ""
     if settings.get("ask_location", True):
         where_found = input("Where was it: ")
-
 
     when_was_it = ""
     if settings.get("when_was_it", True):
@@ -135,18 +138,21 @@ def add_bird_data():
         if when_was_it.lower() == 'd':
             when_was_it = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-
     notes = ""
     if settings.get("notes", True):
-        notes = input("add notes: ")
+        notes = input("Add notes: ")
 
+    bird_entry = {
+        "Bird": type_of_bird,
+        "Number": bird_number,
+        "Location": where_found,
+        "When": when_was_it,
+        "Notes": notes
+    }
 
-    
-    line = f"{type_of_bird} | {bird_number} | {where_found} | {when_was_it} | {notes}"
-    onsitedata['birds'].append(line)   
+    onsitedata[current_user]["birds"].append(bird_entry)
     save_data()
-    print (f"the {type_of_bird} was added")
-    
+    print(f"The {type_of_bird} was added")
 
 
 def remove_all_data():
