@@ -207,14 +207,15 @@ def export_to_excel():
     except Exception as e:
         print(f"Failed to export Excel file: {e}")
 
+#open setings
 
 def open_settings():
     while True:
-        print("chade wich quesgens are asked: ")
+        print("\nChange which questions are asked:")
         for key, value in settings.items():
             print(f"- {key}: {'ON' if value else 'OFF'}")
-        
-        print("put the setting name to change it like ask_location or when_was_it if not type back to return.")
+
+        print("Type the setting name to change it (e.g., ask_location), or type 'back' to return.")
         choice = input("Your choice: ").lower()
 
         if choice == 'back':
@@ -224,9 +225,11 @@ def open_settings():
             save_settings()
             print(f"{choice} set to {'ON' if settings[choice] else 'OFF'}")
         else:
-            print("this not setting name.")
+            print("This is not a setting name.")
 
 
+
+#menu
 
 def show_menu():
     while True:
@@ -237,7 +240,8 @@ def show_menu():
         print('export to excel:4 ')
         print('remove all:5 ')
         print('settings:6 ')
-        option=input("pick from 1-6: ")
+        print('logout or exit:7 ')
+        option=input("pick from 1-7: ")
         if option=='1':
             add_bird_data()
         elif option=='2':
@@ -249,6 +253,8 @@ def show_menu():
         elif option=='5':
             remove_all_data()
         elif option=='6':
+            open_settings()
+        elif option=='7':
             open_settings()
         else:
             print("this is not a number to choose")
