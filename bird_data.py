@@ -111,7 +111,10 @@ if choice == "1":
 else:
     current_user = create_account()
 
+#get data
 
+if current_user not in onsitedata:
+    onsitedata[current_user] = {"birds": []}
 
 
 
