@@ -155,18 +155,21 @@ def add_bird_data():
     print(f"The {type_of_bird} was added")
 
 
+
+#remove all bird
+
 def remove_all_data():
-    are_you_sure=input("are you sure you want to delate all your saved data type 1: ")
-    if are_you_sure=="1":
-        onsitedata["birds"]=[]
+    are_you_sure = input("Are you sure you want to delete all your saved data? Type 1: ")
+    if are_you_sure == "1":
+        onsitedata[current_user]["birds"] = []
         save_data()
-        print("data removed: ")
+        print("Data removed.")
     else:
-        print("no data removed")
+        print("No data removed.")
 
 
 
-
+#remove bird
 
 def remove_bird_data():
     if not onsitedata["birds"]:
