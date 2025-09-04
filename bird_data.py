@@ -180,51 +180,32 @@ def remove_bird_data():
     print(f"Removed: {removed}")
 
 
+# show bird data
 
 def show_bird_data():
-    if not onsitedata['birds']:
+    if not onsitedata[current_user]["birds"]:
         print("No bird data available.")
         return
 
     print("\nSaved Bird Data:")
-    for idx, entry in enumerate(onsitedata['birds'], start=1):
-        parts = list(map(str.strip, entry.split('|')))
-        while len(parts) < 5:
-            parts.append("")  
-        type_of_bird, bird_number, where_found, when_seen, notes = parts
-        print(f"{idx}. Bird: {type_of_bird}, Number: {bird_number}, Location: {where_found}, When: {when_seen}, Notes: {notes}")
-    
+    for idx, entry in enumerate(onsitedata[current_user]["birds"], start=1):
+        print(f"{idx}. Bird: {entry['Bird']}, Number: {entry['Number']}, "
+              f"Location: {entry['Location']}, When: {entry['When']}, Notes: {entry['Notes']}")
 
-
+#export
 
 def export_to_excel():
-    if not onsitedata["birds"]:
+    if not onsitedata[current_user]["birds"]:
         print("No bird data available.")
         return
 
-    bird_list = []  
-
-    for entry in onsitedata["birds"]:
-        parts = list(map(str.strip, entry.split('|')))
-        while len(parts) < 5:
-            parts.append("") 
-        type_of_bird, bird_number, where_found, when_seen, notes = parts
-        bird_list.append({
-            'Bird': type_of_bird,
-            'Number': bird_number,
-            'Location': where_found,
-            'When': when_seen,
-            'Notes': notes
-        })
-
-
     try:
-        df = pd.DataFrame(bird_list)
-        df.to_excel("bird_data.xlsx", index=False)
-        print("bird data exported to bird_data.xlsx")
+        df = pd.DataFrame(onsitedata[current_user]["birds"])
+        filename = f"{current_user}_bird_data.xlsx"
+        df.to_excel(filename, index=False)
+        print(f"Bird data exported to {filename}")
     except Exception as e:
-        print(f"failed to export Excel file: {e}")
-
+        print(f"Failed to export Excel file: {e}")
 
 
 def open_settings():
