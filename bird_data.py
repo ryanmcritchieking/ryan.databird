@@ -79,15 +79,26 @@ def save_accounts():
 #      useing account
 
 def create_account():
-    username = input("Enter a new username: ")
-    for acc in accounts_data["accounts"]:
-        if acc["username"] == username:
-            print("Username already exists. Try again.")
-            return create_account()
+    username = input("Enter a new username: ").strip()
+    
+    # Check if username is taken or if someone tries to use "ryan"
+    if username.lower() == "ryan":
+        for acc in accounts_data["accounts"]:
+            if acc["username"].lower() == "ryan":
+                print("The username 'ryan' is reserved and cannot be used.")
+                return create_account()
+        is_admin = True  # Only allow 'ryan' if it doesn't exist yet
+    else:
+        is_admin = False
+        for acc in accounts_data["accounts"]:
+            if acc["username"].lower() == username.lower():
+                print("Username already exists. Try again.")
+                return create_account()
+
     password = input("Enter a new password: ")
-    accounts_data["accounts"].append({"username": username, "password": password})
+    accounts_data["accounts"].append({"username": username, "password": password, "is_admin": is_admin})
     save_accounts()
-    print("Account created ")
+    print("Account created " + ("(Admin)" if is_admin else ""))
     return username
 
 def login():
