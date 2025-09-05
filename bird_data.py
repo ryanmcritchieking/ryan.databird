@@ -253,6 +253,12 @@ def show_menu():
         print('5.remove all: ')
         print('6.settings: ')
         print('7.logout or exit: ')
+        if is_admin:
+            print('8. ADMIN: view all users bird data: ')
+        if is_admin:
+            print('9. ADMIN: view all uses and paswrod: ')
+        if is_admin:
+            print('10. ADMIN: remove acounts: ')
         option=input("pick from 1-7: ")
         if option=='1':
             add_bird_data()
