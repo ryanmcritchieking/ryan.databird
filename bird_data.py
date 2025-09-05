@@ -234,13 +234,14 @@ def open_settings():
 def show_menu():
     while True:
         print('bird data saver ')
-        print('add bird:1 ')
-        print('remove bird data:2 ')
-        print('show bird data:3 ')
-        print('export to excel:4 ')
-        print('remove all:5 ')
-        print('settings:6 ')
-        print('logout or exit:7 ')
+        print('')
+        print('1. add bird: ')
+        print('2. remove bird data: ')
+        print('3.show bird data: ')
+        print('4.export to excel: ')
+        print('5.remove all: ')
+        print('6.settings: ')
+        print('7.logout or exit: ')
         option=input("pick from 1-7: ")
         if option=='1':
             add_bird_data()
@@ -255,7 +256,7 @@ def show_menu():
         elif option=='6':
             open_settings()
         elif option=='7':
-            open_settings()
+            break
         else:
             print("this is not a number to choose")
             
