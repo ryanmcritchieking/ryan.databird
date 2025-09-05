@@ -5,7 +5,7 @@ import pip
 import pandas as pd
 from datetime import datetime
 
-
+is_admin="No"
 bird_list=[]
 
 #     defult settings
@@ -81,13 +81,13 @@ def save_accounts():
 def create_account():
     username = input("Enter a new username: ").strip()
     
-    # Check if username is taken or if someone tries to use "ryan"
+    
     if username.lower() == "ryan":
         for acc in accounts_data["accounts"]:
             if acc["username"].lower() == "ryan":
                 print("The username 'ryan' is reserved and cannot be used.")
                 return create_account()
-        is_admin = True  # Only allow 'ryan' if it doesn't exist yet
+        is_admin = True  
     else:
         is_admin = False
         for acc in accounts_data["accounts"]:
@@ -268,6 +268,14 @@ def show_menu():
             open_settings()
         elif option=='7':
             break
+        elif option == '8' and is_admin:
+
+        elif option == '9' and is_admin:
+            
+        elif option == '9' and is_admin:
+            
+        
+
         else:
             print("this is not a number to choose")
             
