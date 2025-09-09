@@ -275,11 +275,12 @@ def show_menu():
         elif option=='7':
             break
         elif option == '8' and is_admin:
+            print("hi")
 
         elif option == '9' and is_admin:
-            
+            print("hi")
         elif option == '9' and is_admin:
-            
+            print("hi")
         
 
         else:
