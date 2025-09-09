@@ -2,15 +2,23 @@
     "accounts": [
         {
             "username": "AndCam_7714",
+            "is_admin": false,
             "password": "W5steria"
         },
         {
             "username": "ryan",
+            "is_admin": true,
             "password": "12345678"
         },
         {
             "username": "Tabita",
+            "is_admin": false,
             "password": "Super"
+        },
+        {
+            "username": "mum",
+            "password": "mumhome1",
+            "is_admin": false
         }
     ]
 }

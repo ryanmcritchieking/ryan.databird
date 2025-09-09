@@ -23,5 +23,23 @@
                 "Notes": "Feeding on Kowhai"
             }
         ]
+    },
+    "mum": {
+        "birds": [
+            {
+                "Bird": "kakapo",
+                "Number": "10",
+                "Location": "codfish island",
+                "When": "2025-09-09 19:38:22",
+                "Notes": ""
+            },
+            {
+                "Bird": "mohua",
+                "Number": "2",
+                "Location": "ulva island",
+                "When": "2/9/2025",
+                "Notes": "a pair, starting to nest"
+            }
+        ]
     }
 }
