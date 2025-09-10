@@ -5,7 +5,7 @@ import pip
 import pandas as pd
 from datetime import datetime
 
-is_admin="No"
+is_admin="Fales"
 bird_list=[]
 
 #     defult settings
@@ -81,13 +81,14 @@ def save_accounts():
 def create_account():
     username = input("Enter a new username: ").strip()
     
-    
+    # Admin user check for reserved username 'ryan'
     if username.lower() == "ryan":
+        # Admin user check already exists
         for acc in accounts_data["accounts"]:
             if acc["username"].lower() == "ryan":
                 print("The username 'ryan' is reserved and cannot be used.")
                 return create_account()
-        is_admin = True  
+        is_admin = True  # Set as admin
     else:
         is_admin = False
         for acc in accounts_data["accounts"]:
