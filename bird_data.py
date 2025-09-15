@@ -5,7 +5,7 @@ import pip
 import pandas as pd
 from datetime import datetime
 
-is_admin="Fales"
+is_admin="False"
 bird_list=[]
 
 #     defult settings
@@ -79,6 +79,7 @@ def save_accounts():
 #      useing account
 
 def create_account():
+    global is_admin
     username = input("Enter a new username: ").strip()
     
     # Admin user check for reserved username 'ryan'
@@ -103,30 +104,17 @@ def create_account():
     return username
 
 def login():
+    global is_admin
     username = input("Enter username: ")
     password = input("Enter password: ")
     for acc in accounts_data["accounts"]:
         if acc["username"] == username and acc["password"] == password:
             print(f"Welcome {username}!")
+            is_admin = acc.get("is_admin", False)
             return username
     print("Invalid username or password. Try again.")
     return login()
 
-#login 
-
-
-print("1. Login")
-print("2. Create Account")
-choice = input("Choose 1 or 2: ")
-if choice == "1":
-    current_user = login()
-else:
-    current_user = create_account()
-
-#get data
-
-if current_user not in onsitedata:
-    onsitedata[current_user] = {"birds": []}
 
 
 #add bird
