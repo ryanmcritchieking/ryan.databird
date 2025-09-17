@@ -54,8 +54,6 @@ else:
 
 
 
-
-
 if 'birds' not in onsitedata:
     onsitedata['birds'] = []
 
@@ -115,6 +113,11 @@ def login():
     print("Invalid username or password. Try again.")
     return login()
 
+#i could not defin above
+current_user = login()  # or create_account()
+
+if current_user not in onsitedata:
+    onsitedata[current_user] = {"birds": []}
 
 
 #add bird
