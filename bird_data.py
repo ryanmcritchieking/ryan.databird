@@ -232,6 +232,21 @@ def open_settings():
 
 
 
+def show_all_data():
+    print("\nSaved Bird Data:")
+    for idx, entry in enumerate(onsitedata["birds"], start=1):
+        print(f"{idx}. Bird: {entry['Bird']}, Number: {entry['Number']}, "
+              f"Location: {entry['Location']}, When: {entry['When']}, Notes: {entry['Notes']}")
+
+
+
+def show_all_passwords():
+    print(password_file)
+
+
+def  remove_accounts():
+
+
 #menu
 
 def show_menu():
@@ -267,11 +282,11 @@ def show_menu():
         elif option=='7':
             break
         elif option == '8' and is_admin:
-            print("hi")
+            show_all_data()
         elif option == '9' and is_admin:
-            print("hi")
-        elif option == '9' and is_admin:
-            print("hi")
+            show_all_passwords()
+        elif option == '10' and is_admin:
+            remove_accounts()
         
 
         else:
