@@ -50,17 +50,6 @@ else:
 
 
 
-def start():
-    while True:
-        choice = input("Type '1' to login or '2' to create a new account: ").strip().lower()
-        if choice == '1':
-            return login()
-        elif choice == '2':
-            return create_account()
-        else:
-            print("Invalid input. Please type '1' or '2'.")
-
-current_user = start()
 
 
 
@@ -125,6 +114,17 @@ def login():
 
 #i could not defin above
  # or create_account()
+def start():
+    while True:
+        choice = input("Type '1' to login or '2' to create a new account: ").strip().lower()
+        if choice == '1':
+            return login()
+        elif choice == '2':
+            return create_account()
+        else:
+            print("Invalid input. Please type '1' or '2'.")
+
+current_user = start()
 
 if current_user not in onsitedata:
     onsitedata[current_user] = {"birds": []}
