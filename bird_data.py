@@ -50,7 +50,17 @@ else:
 
 
 
+def start():
+    while True:
+        choice = input("Type 'login' to login or 'create' to create a new account: ").strip().lower()
+        if choice == 'login':
+            return login()
+        elif choice == 'create':
+            return create_account()
+        else:
+            print("Invalid input. Please type 'login' or 'create'.")
 
+current_user = start()
 
 
 
@@ -114,7 +124,7 @@ def login():
     return login()
 
 #i could not defin above
-current_user = login()  # or create_account()
+ # or create_account()
 
 if current_user not in onsitedata:
     onsitedata[current_user] = {"birds": []}
