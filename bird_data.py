@@ -233,15 +233,23 @@ def open_settings():
 
 
 def show_all_data():
-    print("\nSaved Bird Data:")
-    for idx, entry in enumerate(onsitedata["birds"], start=1):
-        print(f"{idx}. Bird: {entry['Bird']}, Number: {entry['Number']}, "
-              f"Location: {entry['Location']}, When: {entry['When']}, Notes: {entry['Notes']}")
+    print("\nAll users bird data:")
+    for user, data in onsitedata.items():
+        print(f"\nUser: {user}")
+        birds = data.get("birds", [])
+        if not birds:
+            print("  No bird data.")
+            continue
+        for idx, entry in enumerate(birds, start=1):
+            print(f"  {idx}. Bird: {entry['Bird']}, Number: {entry['Number']}, "
+                  f"Location: {entry['Location']}, When: {entry['When']}, Notes: {entry['Notes']}")
 
 
 
 def show_all_passwords():
-    print(password_file)
+    print("\nAll accounts:")
+    for acc in accounts_data.get("accounts", []):
+        print(f"Username: {acc['username']}, Password: {acc['password']}, Admin: {acc.get('is_admin', False)}")
 
 
 def  remove_accounts():
