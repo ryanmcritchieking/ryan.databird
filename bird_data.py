@@ -252,7 +252,29 @@ def show_all_passwords():
         print(f"Username: {acc['username']}, Password: {acc['password']}, Admin: {acc.get('is_admin', False)}")
 
 
-def  remove_accounts():
+def remove_accounts():
+    print("\nAll accounts:")
+    for i, acc in enumerate(accounts_data.get("accounts", []), start=1):
+        print(f"{i}. {acc['username']} (Admin: {acc.get('is_admin', False)})")
+
+    username_to_remove = input("Enter the username to remove (or 'back' to cancel): ").strip()
+    if username_to_remove.lower() == 'back':
+        return
+
+    for acc in accounts_data["accounts"]:
+        if acc["username"].lower() == username_to_remove.lower():
+            if acc.get("is_admin", False):
+                print("You cannot remove an admin account.")
+                return
+            accounts_data["accounts"].remove(acc)
+            # Also remove their bird data if exists
+            if username_to_remove in onsitedata:
+                del onsitedata[username_to_remove]
+            save_accounts()
+            save_data()
+            print(f"Account '{username_to_remove}' and their data have been removed.")
+            return
+    print(f"No account found with username '{username_to_remove}'.")
 
 
 #menu
