@@ -5,7 +5,7 @@ import pip
 import pandas as pd
 from datetime import datetime
 
-is_admin="False"
+is_admin=False
 bird_list=[]
 
 #     defult settings
@@ -52,13 +52,13 @@ else:
 
 def start():
     while True:
-        choice = input("Type 'login' to login or 'create' to create a new account: ").strip().lower()
-        if choice == 'login':
+        choice = input("Type '1' to login or '2' to create a new account: ").strip().lower()
+        if choice == '1':
             return login()
-        elif choice == 'create':
+        elif choice == '2':
             return create_account()
         else:
-            print("Invalid input. Please type 'login' or 'create'.")
+            print("Invalid input. Please type '1' or '2'.")
 
 current_user = start()
 
