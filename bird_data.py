@@ -126,6 +126,7 @@ def start():
 
 current_user = start()
 
+
 if current_user not in onsitedata:
     onsitedata[current_user] = {"birds": []}
 
