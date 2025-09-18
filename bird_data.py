@@ -53,10 +53,6 @@ else:
 
 
 
-if 'birds' not in onsitedata:
-    onsitedata['birds'] = []
-
-
 
 #saving funcshon
 
