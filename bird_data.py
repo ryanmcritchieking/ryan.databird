@@ -247,6 +247,9 @@ def show_all_data():
     print("\nAll users bird data:")
     for user, data in onsitedata.items():
         print(f"\nUser: {user}")
+        if not isinstance(data, dict):
+            print("  Invalid data format for this user.")
+            continue
         birds = data.get("birds", [])
         if not birds:
             print("  No bird data.")
@@ -254,6 +257,7 @@ def show_all_data():
         for idx, entry in enumerate(birds, start=1):
             print(f"  {idx}. Bird: {entry['Bird']}, Number: {entry['Number']}, "
                   f"Location: {entry['Location']}, When: {entry['When']}, Notes: {entry['Notes']}")
+
 
 
 
