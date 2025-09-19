@@ -19,6 +19,7 @@
             "username": "mum",
             "password": "mumhome1",
             "is_admin": false
-        }
-    ]
-}
+        },
+        {
+            "username": "tom",
+            "password": 

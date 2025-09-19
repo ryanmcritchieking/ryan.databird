@@ -100,7 +100,8 @@ def create_account():
     password = input("Enter a new password: ")
     
     # Encrypt the password
-    encrypted_password = cipher_suite.encrypt(password.encode())
+    encrypted_password = cipher_suite.encrypt(password.encode()).decode()
+
 
     accounts_data["accounts"].append({"username": username, "password": encrypted_password, "is_admin": is_admin})
     save_accounts()
@@ -119,7 +120,9 @@ def login():
     for acc in accounts_data["accounts"]:
         if acc["username"] == username:
             # Decrypt the stored password
-            decrypted_password = cipher_suite.decrypt(acc["password"]).decode()
+            decrypted_password = cipher_suite.decrypt(acc["password"].encode()).decode()
+
+
 
             if decrypted_password == password:
                 # Output: Welcome message on successful login
