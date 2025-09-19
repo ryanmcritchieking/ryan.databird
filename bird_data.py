@@ -6,6 +6,13 @@ import pandas as pd
 from datetime import datetime
 from cryptography.fernet import Fernet
 
+# Load the encryption key
+def load_key():
+    return open("secret.key", "rb").read()
+
+key = load_key()
+cipher_suite = Fernet(key)
+
 
 is_admin=False
 bird_list=[]
