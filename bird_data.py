@@ -14,6 +14,13 @@ key = load_key()
 cipher_suite = Fernet(key)
 
 
+
+# Run this part once to generate a key (store it securely in the system)
+key = Fernet.generate_key()
+with open('secret.key', 'wb') as key_file:
+    key_file.write(key)
+
+
 is_admin=False
 bird_list=[]
 
