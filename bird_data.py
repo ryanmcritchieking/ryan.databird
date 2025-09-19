@@ -90,12 +90,17 @@ def login():
     username = input("Enter username: ")
     # Input: Password from user
     password = input("Enter password: ")
+
     for acc in accounts_data["accounts"]:
-        if acc["username"] == username and acc["password"] == password:
-            # Output: Welcome message on successful login
-            print(f"Welcome {username}!")
-            is_admin = acc.get("is_admin", False)
-            return username
+        if acc["username"] == username:
+            # Decrypt the stored password
+            decrypted_password = cipher_suite.decrypt(acc["password"]).decode()
+
+            if decrypted_password == password:
+                # Output: Welcome message on successful login
+                print(f"Welcome {username}!")
+                is_admin = acc.get("is_admin", False)
+                return username
     # Output: Error message on failed login
     print("Invalid username or password. Try again.")
     return login()
