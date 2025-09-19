@@ -78,11 +78,16 @@ def create_account():
 
     # Input: New password from user
     password = input("Enter a new password: ")
-    accounts_data["accounts"].append({"username": username, "password": password, "is_admin": is_admin})
+    
+    # Encrypt the password
+    encrypted_password = cipher_suite.encrypt(password.encode())
+
+    accounts_data["accounts"].append({"username": username, "password": encrypted_password, "is_admin": is_admin})
     save_accounts()
     # Output: Confirmation of account creation
     print("Account created " + ("(Admin)" if is_admin else ""))
     return username
+
 
 def login():
     global is_admin
