@@ -292,8 +292,14 @@ def show_all_data():
 def show_all_passwords():
     print("\nAll accounts:")
     for acc in accounts_data.get("accounts", []):
-        # Output: Show username, password, and admin status
-        print(f"Username: {acc['username']}, Password: {acc['password']}, Admin: {acc.get('is_admin', False)}")
+        try:
+            # Decrypt password string
+            decrypted_password = cipher_suite.decrypt(acc["password"].encode()).decode()
+        except Exception as e:
+            decrypted_password = f"(Error decrypting: {e})"
+
+        print(f"Username: {acc['username']}, Password: {decrypted_password}, Admin: {acc.get('is_admin', False)}")
+
 
 # Remove accounts (admin only)
 def remove_accounts():

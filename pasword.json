@@ -1,25 +1,9 @@
 {
     "accounts": [
         {
-            "username": "AndCam_7714",
-            "is_admin": false,
-            "password": "W5steria"
-        },
-        {
             "username": "ryan",
-            "is_admin": true,
-            "password": "12345678"
-        },
-        {
-            "username": "Tabita",
-            "is_admin": false,
-            "password": "Super"
-        },
-        {
-            "username": "mum",
-            "password": "mumhome1",
-            "is_admin": false
-        },
-        {
-            "username": "tom",
-            "password": 
+            "password": "gAAAAABozL8Iw33LtblKxv0rLbql-cOYknBW3vnal8L4vuL8ljL3BHprPokXJZyzaoLjra6LVe6FOOmEJuj1XbxxoXYdberjwg==",
+            "is_admin": true
+        }
+    ]
+}
