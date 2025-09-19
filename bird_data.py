@@ -7,19 +7,25 @@ from datetime import datetime
 from cryptography.fernet import Fernet
 
 # Load the encryption key
-def load_key():
-    return open("secret.key", "rb").read()
+KEY_FILE = "secret.key"
 
+# Function to load or generate the key
+def load_key():
+    # Check if the key file exists
+    if os.path.exists(KEY_FILE):
+        with open(KEY_FILE, "rb") as key_file:
+            return key_file.read()
+    else:
+        # If the key doesn't exist, generate a new key
+        print("Key file not found. Generating a new key.")
+        key = Fernet.generate_key()
+        with open(KEY_FILE, "wb") as key_file:
+            key_file.write(key)
+        return key
+
+# Load or generate the encryption key
 key = load_key()
 cipher_suite = Fernet(key)
-
-
-
-# Run this part once to generate a key (store it securely in the system)
-key = Fernet.generate_key()
-with open('secret.key', 'wb') as key_file:
-    key_file.write(key)
-
 
 is_admin=False
 bird_list=[]
